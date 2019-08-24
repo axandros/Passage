@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5807128551821427864}
+  - component: {fileID: 6566969609619151204}
   m_Layer: 0
   m_Name: WheatTile
   m_TagString: Untagged
@@ -32,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6566969609619151204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5807128551821427865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d042540480e623d4d8670fbd5bc4580b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoilMesh: {fileID: 5807128553820317825}
+  WheatMesh: {fileID: 5807128553176651097}
+  WheatMeshList:
+  - {fileID: 5024624711831412731, guid: e4b2577a6a5f3eb439cc10a2de7cf08c, type: 3}
+  - {fileID: -7265775541830191598, guid: 583034b35bc13034c80dfd68fa555ce7, type: 3}
+  - {fileID: 7765092457097846305, guid: d8bcc6ae06014084592db59bf760aaf8, type: 3}
 --- !u!1 &5807128553176651077
 GameObject:
   m_ObjectHideFlags: 0
