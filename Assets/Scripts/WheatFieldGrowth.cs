@@ -7,13 +7,21 @@ public class WheatFieldGrowth : MonoBehaviour
     WheatTile[] Plots = null;
 
     [SerializeField]
-    MeshFilter Filter;
-
-    [SerializeField]
-    Mesh[] States = null;
-
-    public int NumberOfStates { get { return States.Length; } }
+    public int NumberOfStates = 4;
+    
     private int _growthState = 0;
+    public int GrowthState { get { return _growthState; } }
+    public int NextGrowthState { get
+        {
+            if (GrowthState >= NumberOfStates-1)
+            { return 0; }
+            else
+            { return GrowthState + 1; }
+        }
+     }
+
+    private float _growthPercent = 0.0f;
+    public float Growth { get { return _growthPercent; } set { if (value <= 1.1f && value >= -0.1) { _growthPercent = value; } } }
 
     void Start()
     {
