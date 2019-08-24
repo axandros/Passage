@@ -32,6 +32,7 @@ public class WheatFieldGrowth : MonoBehaviour
     void Update()
     {
         //For Testing, set state with number keys
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetState(0);
@@ -48,6 +49,7 @@ public class WheatFieldGrowth : MonoBehaviour
         {
             SetState(3);
         }
+        */
     }
 
     public void SetState(int state)
