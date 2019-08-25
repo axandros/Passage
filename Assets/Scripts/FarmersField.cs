@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class FarmersField : MonoBehaviour
 {
-    WheatFieldGrowth[] Fields;
+    WheatField[] Fields;
+
+    [SerializeField]
+    Farmer _farmer = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        Fields = GetComponentsInChildren<WheatFieldGrowth>(); 
+        Fields = GetComponentsInChildren<WheatField>(); 
     }
 
     // Update is called once per frame
@@ -17,21 +20,49 @@ public class FarmersField : MonoBehaviour
     {
         for(int index = 0; index < Fields.Length; index++)
         {
-            Fields[index].Growth += Random.Range(0, 0.03f);
-            if(index == 0)
+            if(Fields[index].CanAdvance)
             {
-                //Debug.Log("Growth: " + Fields[index].Growth);
+                _farmer.AddFieldToList(Fields[index]);
+            }
+        }
+        TestGrowthHalt();
+    }
 
-            }
-            if(Fields[index].Growth >= 1.0f)
-            {
-                if (index == 0)
-                {
-                    Debug.Log("NextGrowth: " + Fields[index].NextGrowthState);
-                }
-                Fields[index].SetState(Fields[index].NextGrowthState);
-                Fields[index].Growth = 0.0f;
-            }
+    void IncreaseFieldState(int index)
+    {
+        if (Fields[index].Growth >= 1.0f)
+        {
+            Fields[index].SetState(Fields[index].NextGrowthState);
+            Fields[index].Growth = 0.0f;
+        }
+    }
+
+    void TestGrowthHalt()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            IncreaseFieldState(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            IncreaseFieldState(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            IncreaseFieldState(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            IncreaseFieldState(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            IncreaseFieldState(4);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            IncreaseFieldState(5);
         }
     }
 }
+

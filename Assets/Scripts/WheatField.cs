@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WheatFieldGrowth : MonoBehaviour
+public class WheatField : MonoBehaviour
 {
     WheatTile[] Plots = null;
 
@@ -20,8 +20,13 @@ public class WheatFieldGrowth : MonoBehaviour
         }
      }
 
-    private float _growthPercent = 0.0f;
-    public float Growth { get { return _growthPercent; } set { if (value <= 1.1f && value >= -0.1) { _growthPercent = value; } } }
+    [SerializeField]
+    float FullGrowthTime = 20.0f;
+    float _currentGrowthTime = 0.0f;
+    public float GrowthTime { get { return FullGrowthTime; } }
+    public float Growth { get { return _currentGrowthTime; } 
+    set { _currentGrowthTime = value; } 
+    }
 
     void Start()
     {
@@ -31,25 +36,7 @@ public class WheatFieldGrowth : MonoBehaviour
 
     void Update()
     {
-        //For Testing, set state with number keys
-        /*
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetState(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetState(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SetState(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SetState(3);
-        }
-        */
+        _currentGrowthTime += Time.deltaTime;
     }
 
     public void SetState(int state)
@@ -60,6 +47,29 @@ public class WheatFieldGrowth : MonoBehaviour
             for (int index = 0; index < Plots.Length; index++) {
                 Plots[index].UpdateMesh(state-1);
             }
+        }
+    }
+
+    public bool AdvanceState()
+    {
+        bool ret = false;
+        if(CanAdvance)
+        {
+            for (int index = 0; index < Plots.Length; index++)
+            {
+                Plots[index].UpdateMesh(NextGrowthState-1);
+            }
+            _growthState = NextGrowthState;
+            _currentGrowthTime = 0.0f;
+        }
+        return ret;
+    }
+
+    public bool CanAdvance
+    {
+        get
+        {
+            return _currentGrowthTime >= FullGrowthTime;
         }
     }
 }

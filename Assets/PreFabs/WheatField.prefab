@@ -52,12 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997ad2259d4b7914ab3c776a8583245e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Filter: {fileID: 0}
-  States:
-  - {fileID: 4551732406245449246, guid: 91d42ab75ece9de4194cac441ea43a4c, type: 3}
-  - {fileID: 5024624711831412731, guid: e4b2577a6a5f3eb439cc10a2de7cf08c, type: 3}
-  - {fileID: -7265775541830191598, guid: 583034b35bc13034c80dfd68fa555ce7, type: 3}
-  - {fileID: 7765092457097846305, guid: d8bcc6ae06014084592db59bf760aaf8, type: 3}
+  NumberOfStates: 4
+  FullGrowthTime: 60
 --- !u!1001 &7370875229622824149
 PrefabInstance:
   m_ObjectHideFlags: 0
