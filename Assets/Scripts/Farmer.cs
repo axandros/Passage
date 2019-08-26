@@ -7,6 +7,7 @@ public class Farmer : MonoBehaviour
 {
     enum FarmerStates { IDLE, MOVING, FARMING, HOME };
 
+    [SerializeField]
     FarmerStates _farmerState = FarmerStates.IDLE;
 
     List<WheatField> _fieldsNeedingMaintenance = null;
@@ -59,6 +60,8 @@ public class Farmer : MonoBehaviour
         if(timeFarming > 2.0)
         {
             _fieldMaintaining.AdvanceState();
+
+            _fieldMaintaining = null;
             _farmerState = FarmerStates.IDLE;
             timeFarming = 0.0f;
         }
@@ -80,14 +83,14 @@ public class Farmer : MonoBehaviour
                   
                     if (_fieldMaintaining != null)
                     {
-                        //Debug.Log("Arrived at Field");
+                        Debug.Log("Arrived at Field");
                         _farmerState = FarmerStates.FARMING;
                     }
                     else{
                         float distanceHome = (transform.position - Home).magnitude;
                         if (distanceHome <= _agent.stoppingDistance)
                         {
-                            //Debug.Log("Arrived Home.");
+                            Debug.Log("Arrived Home.");
                             _farmerState = FarmerStates.HOME;
                         }
                         else
@@ -109,7 +112,7 @@ public class Farmer : MonoBehaviour
     void IdleState()
     {
         MaintainFields();
-        if (_fieldsNeedingMaintenance.Count == 0)
+        if (_fieldMaintaining == null)
         {
             MoveTo(Home);
         }
