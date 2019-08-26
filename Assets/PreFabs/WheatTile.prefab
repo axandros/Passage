@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoilMesh: {fileID: 5807128553820317825}
+  SoilMeshList:
+  - {fileID: 4551732406245449246, guid: 91d42ab75ece9de4194cac441ea43a4c, type: 3}
+  - {fileID: -1011290028169658682, guid: 07a4dfa5163700a46aebb378b3a82f82, type: 3}
   WheatMesh: {fileID: 5807128553176651097}
   WheatMeshList:
   - {fileID: 5024624711831412731, guid: e4b2577a6a5f3eb439cc10a2de7cf08c, type: 3}
@@ -62,7 +65,6 @@ GameObject:
   - component: {fileID: 5807128553176651076}
   - component: {fileID: 5807128553176651097}
   - component: {fileID: 5807128553176651098}
-  - component: {fileID: 5807128553176651099}
   m_Layer: 0
   m_Name: Wheat
   m_TagString: Untagged
@@ -130,19 +132,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5807128553176651099
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5807128553176651077}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5807128553820317837
 GameObject:
   m_ObjectHideFlags: 0

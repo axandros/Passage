@@ -25,7 +25,8 @@ public class FarmersField : MonoBehaviour
                 _farmer.AddFieldToList(Fields[index]);
             }
         }
-        TestGrowthHalt();
+        //TestGrowthHalt();
+        //TestDrying();
     }
 
     void IncreaseFieldState(int index)
@@ -62,6 +63,27 @@ public class FarmersField : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             IncreaseFieldState(5);
+        }
+    }
+
+    void TestDrying()
+    {
+       
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetSoilState(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SetSoilState(1);
+        }
+      
+    }
+    void SetSoilState(int state)
+    {
+        for (int index = 0; index < Fields.Length; index++)
+        {
+            Fields[index].SoilState(state);
         }
     }
 }

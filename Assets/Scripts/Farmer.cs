@@ -54,7 +54,7 @@ public class Farmer : MonoBehaviour
     void FarmingState()
     {
         timeFarming += Time.deltaTime;
-        Debug.Log("Time Farming: " + timeFarming);
+        //Debug.Log("Time Farming: " + timeFarming);
         if(timeFarming > 2.0)
         {
             _fieldMaintaining.AdvanceState();
@@ -79,20 +79,20 @@ public class Farmer : MonoBehaviour
                   
                     if (_fieldMaintaining != null)
                     {
-                        Debug.Log("Arrived at Field");
+                        //Debug.Log("Arrived at Field");
                         _farmerState = FarmerStates.FARMING;
                     }
                     else{
                         float distanceHome = (transform.position - Home).magnitude;
                         if (distanceHome <= _agent.stoppingDistance)
                         {
-                            Debug.Log("Arrived Home.");
+                            //Debug.Log("Arrived Home.");
                             _farmerState = FarmerStates.HOME;
                         }
                         else
                         {
                             _agent.destination = Home;
-                            Debug.Log("Stopped with no known desitination.  Going Home");
+                            //Debug.Log("Stopped with no known desitination.  Going Home");
                         }
                     }
 
