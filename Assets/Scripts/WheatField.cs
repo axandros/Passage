@@ -33,6 +33,9 @@ public class WheatField : MonoBehaviour
     float _currentDryTime = 0.0f;
     public bool _isBeingWatered = false;
 
+    //[SerializeField]
+    float WaterAbsorptionFactor = 5.0f;
+
     BoxCollider _bc = null;
 
 
@@ -41,6 +44,8 @@ public class WheatField : MonoBehaviour
         Plots = GetComponentsInChildren<WheatTile>();
         SetState(_growthState);
         _bc = GetComponent<BoxCollider>();
+
+        _currentGrowthTime = GrowthTime * 0.8f;
     }
 
     void Update()
@@ -65,7 +70,7 @@ public class WheatField : MonoBehaviour
             }
         } else
         {
-            _currentDryTime = Mathf.Max(_currentDryTime - Time.deltaTime * 2, 0.0f);
+            _currentDryTime = Mathf.Max(_currentDryTime - Time.deltaTime *WaterAbsorptionFactor, 0.0f);
             if (_currentDryTime < DryingTime/2)
             {
                 SoilState(0);

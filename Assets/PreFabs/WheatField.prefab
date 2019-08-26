@@ -55,8 +55,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfStates: 4
-  FullGrowthTime: 10
+  FullGrowthTime: 30
   DryingTime: 10
+  _isBeingWatered: 0
 --- !u!65 &-6792306874391722625
 BoxCollider:
   m_ObjectHideFlags: 0

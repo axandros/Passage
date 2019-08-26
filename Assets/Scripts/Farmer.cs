@@ -55,6 +55,7 @@ public class Farmer : MonoBehaviour
     {
         timeFarming += Time.deltaTime;
         //Debug.Log("Time Farming: " + timeFarming);
+        Debug.Log("Farminng: " + _fieldMaintaining + "- " +_fieldMaintaining.GrowthState);
         if(timeFarming > 2.0)
         {
             _fieldMaintaining.AdvanceState();

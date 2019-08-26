@@ -43,15 +43,15 @@ public class Cloud : MonoBehaviour
             {
                 GameObject go = rainhit.transform.gameObject;
                 WheatField wf = go.GetComponent<WheatField>();
-                Debug.Log("Found " + go.name );
+                //Debug.Log("Found " + go.name );
                 if (wf != null) {
                     wf._isBeingWatered = true; 
-                    Debug.Log("wateringField");
+                   // Debug.Log("wateringField");
                 }
             }
             catch
             {
-                Debug.Log("Excception Occured");
+             //   Debug.Log("Excception Occured");
             }
             
             
