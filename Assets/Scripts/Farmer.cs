@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Farmer : MonoBehaviour
 {
+
+    public int Bushels = 0;
     enum FarmerStates { IDLE, MOVING, FARMING, HOME };
 
     [SerializeField]
@@ -59,6 +61,7 @@ public class Farmer : MonoBehaviour
         Debug.Log("Farminng: " + _fieldMaintaining + "- " +_fieldMaintaining.GrowthState);
         if(timeFarming > 2.0)
         {
+            if (_fieldMaintaining.NextGrowthState == 0) { Bushels++ ; }
             _fieldMaintaining.AdvanceState();
 
             _fieldMaintaining = null;
